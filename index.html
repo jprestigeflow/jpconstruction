@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J Prestige Construction | Elite General Contracting</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,600&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="noise-overlay"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
+    <div class="door-overlay">
+        <div class="door door-left">
+            <h1 class="door-text">J PRESTIGE</h1>
+        </div>
+        <div class="door door-right">
+            <h1 class="door-text text-gradient">CONSTRUCTION</h1>
+        </div>
+    </div>
+
+    <nav class="glass-dock">
+        <div class="logo">JPC</div>
+        <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#expertise">Services</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="#contact" class="nav-btn">Start Project</a>
+    </nav>
+
+    <header id="hero" class="hero-section">
+        <div class="hero-glass-card">
+            <div class="badge">EST. 1985</div>
+            <h1>The Art of <br><span class="text-gradient">Construction Management</span></h1>
+            <p>We don't just build structures. We engineer legacies. 40+ years of high-end commercial & residential mastery.</p>
+            
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="count">40+</span>
+                    <span class="label">Years Exp</span>
+                </div>
+                <div class="vr"></div>
+                <div class="stat">
+                    <span class="count">100%</span>
+                    <span class="label">Success Rate</span>
+                </div>
+                <div class="vr"></div>
+                <div class="stat">
+                    <span class="count">$50M+</span>
+                    <span class="label">Value Delivered</span>
+                </div>
+            </div>
+
+            <div class="hero-actions">
+                <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" class="btn-primary">
+                    <span class="btn-text">Get a Quote</span>
+                    <div class="btn-glow"></div>
+                </button>
+                <button class="btn-secondary"><i class="fa-solid fa-play"></i> Watch Reel</button>
+            </div>
+        </div>
+        
+        <div class="video-container">
+            <video id="hero-video" autoplay muted loop playsinline class="bg-video">
+                <source src="assets/hero.mp4" type="video/mp4"> 
+            </video>
+            <div class="video-overlay"></div>
+        </div>
+    </header>
+
+    <section id="expertise" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h4 class="sub-title">What We Do</h4>
+                <h2 class="title">Elite Capabilities</h2>
+            </div>
+            <div class="glass-grid">
+                <div class="glass-card service-item">
+                    <div class="icon-box"><i class="fa-solid fa-building-user"></i></div>
+                    <h3>Commercial GC</h3>
+                    <p>Full-scale project management for retail fit-outs, offices, and industrial complexes.</p>
+                    <div class="card-glow"></div>
+                </div>
+                <div class="glass-card service-item">
+                    <div class="icon-box"><i class="fa-solid fa-house-chimney-medical"></i></div>
+                    <h3>Luxury Residential</h3>
+                    <p>Custom home builds and high-value renovations requiring precision detail.</p>
+                    <div class="card-glow"></div>
+                </div>
+                <div class="glass-card service-item">
+                    <div class="icon-box"><i class="fa-solid fa-helmet-safety"></i></div>
+                    <h3>Site Management</h3>
+                    <p>We handle the subs, the city, and the headaches. You just handle the keys.</p>
+                    <div class="card-glow"></div>
+                </div>
+                <div class="glass-card service-item">
+                    <div class="icon-box"><i class="fa-solid fa-compass-drafting"></i></div>
+                    <h3>Design & Build</h3>
+                    <p>From architectural blueprints to the final coat of paint. Turnkey solutions.</p>
+                    <div class="card-glow"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="work" class="section-padding dark-bg">
+        <div class="container">
+            <div class="section-header">
+                <h4 class="sub-title">Visual Proof</h4>
+                <h2 class="title">Transformation</h2>
+            </div>
+            <div class="comparison-wrapper">
+                <div class="comparison-slider">
+                    <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80" alt="After" class="img-after">
+                    <div class="img-before-wrapper">
+                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80" alt="Before" class="img-before">
+                        <div class="label-badge before-badge">BEFORE</div>
+                    </div>
+                    <div class="label-badge after-badge">AFTER</div>
+                    <div class="handle">
+                        <div class="handle-line"></div>
+                        <div class="handle-circle"><i class="fa-solid fa-chevron-left"></i><i class="fa-solid fa-chevron-right"></i></div>
+                        <div class="handle-line"></div>
+                    </div>
+                </div>
+                <div class="project-details glass-card">
+                    <h3>The West-End Revamp</h3>
+                    <p>Complete structural overhaul and modern finish integration.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h4 class="sub-title">Client Feedback</h4>
+                <h2 class="title">Trusted By The Best</h2>
+            </div>
+            <div class="glass-grid">
+                <div class="glass-card review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"J Prestige operated with a level of professionalism we rarely see. The site was clean, the timeline was met, and the communication was flawless."</p>
+                    <div class="reviewer">
+                        <div class="r-avatar">JD</div>
+                        <div class="r-info">
+                            <h4>James Dalton</h4>
+                            <span>Property Developer</span>
+                        </div>
+                    </div>
+                    <div class="card-glow"></div>
+                </div>
+                <div class="glass-card review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"We hired them for a restaurant fit-out. They managed the electrical, plumbing, and structural teams perfectly. We opened 2 weeks early."</p>
+                    <div class="reviewer">
+                        <div class="r-avatar">S</div>
+                        <div class="r-info">
+                            <h4>Sarah Chen</h4>
+                            <span>Hospitality Group CEO</span>
+                        </div>
+                    </div>
+                    <div class="card-glow"></div>
+                </div>
+                <div class="glass-card review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"My house renovation was complex. J Prestige took the stress off my shoulders. It felt like I had a partner, not just a worker."</p>
+                    <div class="reviewer">
+                        <div class="r-avatar">M</div>
+                        <div class="r-info">
+                            <h4>Michael Ross</h4>
+                            <span>Homeowner</span>
+                        </div>
+                    </div>
+                    <div class="card-glow"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="trust-strip">
+        <div class="scroller">
+            <div class="scroller-inner">
+                <span>LICENSED & INSURED</span><span class="star">★</span>
+                <span>40 YEARS EXPERIENCE</span><span class="star">★</span>
+                <span>COMMERCIAL GRADE</span><span class="star">★</span>
+                <span>LICENSED & INSURED</span><span class="star">★</span>
+                <span>40 YEARS EXPERIENCE</span><span class="star">★</span>
+                <span>COMMERCIAL GRADE</span><span class="star">★</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="section-padding">
+        <div class="container">
+            <div class="split-layout">
+                <div class="text-side">
+                    <h2 class="title">The J Prestige <br><span class="text-gradient">Standard</span></h2>
+                    <p>We don't cut corners. We manage them. Here is how we ensure your project hits the target.</p>
+                    <ul class="feature-list">
+                        <li><i class="fa-solid fa-check"></i> <span>Detailed Digital Estimates</span></li>
+                        <li><i class="fa-solid fa-check"></i> <span>Daily Site Supervision</span></li>
+                        <li><i class="fa-solid fa-check"></i> <span>Top-Tier Subcontractor Network</span></li>
+                    </ul>
+                </div>
+                <div class="cards-side">
+                    <div class="step-card glass-card" style="--i:1">
+                        <div class="step-num">01</div>
+                        <h4>Consultation</h4>
+                        <p>We assess the site and define the scope.</p>
+                    </div>
+                    <div class="step-card glass-card" style="--i:2">
+                        <div class="step-num">02</div>
+                        <h4>Strategy</h4>
+                        <p>Permits, materials, and timeline locked in.</p>
+                    </div>
+                    <div class="step-card glass-card" style="--i:3">
+                        <div class="step-num">03</div>
+                        <h4>Execution</h4>
+                        <p>Rapid, clean, and professional build-out.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-padding">
+        <div class="container center-content">
+            <div class="glass-form-wrapper">
+                <div class="form-header">
+                    <h2>Start Your Build</h2>
+                    <div class="progress-bar"><div class="progress-fill"></div></div>
+                </div>
+                <form id="leadForm">
+                    <div class="form-step active" data-step="1">
+                        <h3>I am looking for...</h3>
+                        <div class="radio-grid">
+                            <label class="radio-box">
+                                <input type="radio" name="service" value="Commercial" onclick="nextStep(2)">
+                                <span class="box-content"><i class="fa-solid fa-building"></i><span>Commercial</span></span>
+                            </label>
+                            <label class="radio-box">
+                                <input type="radio" name="service" value="Residential" onclick="nextStep(2)">
+                                <span class="box-content"><i class="fa-solid fa-house"></i><span>Residential</span></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-step" data-step="2">
+                        <h3>Project Type?</h3>
+                        <div class="radio-grid">
+                            <label class="radio-box">
+                                <input type="radio" name="type" value="NewBuild" onclick="nextStep(3)">
+                                <span class="box-content"><i class="fa-solid fa-hammer"></i><span>New Build</span></span>
+                            </label>
+                            <label class="radio-box">
+                                <input type="radio" name="type" value="Reno" onclick="nextStep(3)">
+                                <span class="box-content"><i class="fa-solid fa-paint-roller"></i><span>Renovation</span></span>
+                            </label>
+                        </div>
+                        <button type="button" class="back-link" onclick="prevStep(1)">Back</button>
+                    </div>
+                    <div class="form-step" data-step="3">
+                        <h3>Contact Details</h3>
+                        <div class="input-group"><input type="text" placeholder="Full Name (Required)" required></div>
+                        <div class="input-group"><input type="tel" placeholder="Phone Number (Required)" required></div>
+                        <div class="input-group"><input type="email" placeholder="Email (Optional)"></div>
+                        <button type="submit" class="btn-primary full-width">Send Request</button>
+                        <button type="button" class="back-link" onclick="prevStep(2)">Back</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-glass">
+            <div class="footer-brand">
+                <h2>J Prestige.</h2>
+                <p>Building Excellence Since 1985.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Commercial</a>
+                <a href="#">Residential</a>
+                <a href="#">Management</a>
+            </div>
+            <div class="footer-contact">
+                <p>289-237-1389</p>
+                <p>romanjano530@gmail.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
