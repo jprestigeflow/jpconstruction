@@ -6,6 +6,15 @@
   const hasGsap = typeof gsap !== 'undefined';
   if (hasGsap && typeof ScrollTrigger !== 'undefined') gsap.registerPlugin(ScrollTrigger);
 
+  /* ---------- hero source: 4K on large screens ---------- */
+  (function () {
+    const src = document.querySelector('#hero video source[data-uhd]');
+    const conn = navigator.connection || {};
+    if (src && window.innerWidth >= 1440 && !conn.saveData && !/2g|3g/.test(conn.effectiveType || '')) {
+      src.src = src.dataset.uhd; src.parentElement.load();
+    }
+  })();
+
   /* ---------- smooth scroll ---------- */
   let lenis = null;
   if (!reduce && typeof Lenis !== 'undefined' && hasGsap) {
@@ -70,14 +79,6 @@
 
   /* ---------- cursor + magnetic ---------- */
   if (fine && !reduce && hasGsap) {
-    const c1 = document.querySelector('.cur'), c2 = document.querySelector('.cur2');
-    const x1 = gsap.quickTo(c1, 'x', { duration: .08 }), y1 = gsap.quickTo(c1, 'y', { duration: .08 });
-    const x2 = gsap.quickTo(c2, 'x', { duration: .35, ease: 'power3' }), y2 = gsap.quickTo(c2, 'y', { duration: .35, ease: 'power3' });
-    window.addEventListener('pointermove', (e) => { x1(e.clientX); y1(e.clientY); x2(e.clientX); y2(e.clientY); }, { passive: true });
-    document.querySelectorAll('[data-hover]').forEach((el) => {
-      el.addEventListener('pointerenter', () => document.body.classList.add('hovering'));
-      el.addEventListener('pointerleave', () => document.body.classList.remove('hovering'));
-    });
     document.querySelectorAll('[data-magnet]').forEach((el) => {
       const mx = gsap.quickTo(el, 'x', { duration: .4, ease: 'power3' }), my = gsap.quickTo(el, 'y', { duration: .4, ease: 'power3' });
       el.addEventListener('pointermove', (e) => { const r = el.getBoundingClientRect(); mx((e.clientX - r.left - r.width / 2) * .25); my((e.clientY - r.top - r.height / 2) * .35); });
@@ -185,7 +186,7 @@
   const show = (kind, text) => { msg.className = 'msg ' + kind; msg.textContent = text; };
   const summary = (fd) => {
     const g = (k) => (fd.get(k) || '').toString().trim();
-    return ['Hi Roman, quote request from the website.', 'Name: ' + g('name'), 'Phone: ' + g('phone'), g('email') ? 'Email: ' + g('email') : '', 'City: ' + g('city'), 'Project: ' + g('project_type'), g('budget') ? 'Budget: ' + g('budget') : '', g('message') ? 'Details: ' + g('message') : ''].filter(Boolean).join('\n');
+    return ['Quote request from jpconstruction.pages.dev.', 'Name: ' + g('name'), 'Phone: ' + g('phone'), g('email') ? 'Email: ' + g('email') : '', 'City: ' + g('city'), 'Project: ' + g('project_type'), g('budget') ? 'Budget: ' + g('budget') : '', g('message') ? 'Details: ' + g('message') : ''].filter(Boolean).join('\n');
   };
   form.addEventListener('submit', async (ev) => {
     ev.preventDefault();
@@ -198,17 +199,17 @@
       window.location.href = isMobile
         ? 'sms:+1' + PHONE + sep + 'body=' + encodeURIComponent(body)
         : 'mailto:romanojano78@gmail.com?subject=' + encodeURIComponent('Quote request - J Prestige Construction') + '&body=' + encodeURIComponent(body);
-      show('ok', isMobile ? 'Opening your messages app with the details filled in. Hit send and Roman will call you back today.' : 'Opening your email with the details filled in. Send it and Roman will reply today.');
+      show('ok', isMobile ? 'Opening your messages app with the details filled in. Hit send and our team will call you back today.' : 'Opening your email with the details filled in. Send it and our team will reply today.');
       return;
     }
     btn.disabled = true; btn.textContent = 'SENDING';
     try {
       const res = await fetch(form.action, { method: 'POST', body: fd, headers: { Accept: 'application/json' } });
       const data = await res.json().catch(() => ({}));
-      if (res.ok && data.success !== false) { form.reset(); show('ok', 'Sent. Roman will call you back today. If it is urgent, call 289-237-1389 now.'); }
+      if (res.ok && data.success !== false) { form.reset(); show('ok', 'Sent. Our team will call you back today. If it is urgent, call 289-237-1389 now.'); }
       else throw new Error(data.message || 'Send failed');
     } catch (err) {
-      show('err', 'The form could not send. Call or text 289-237-1389 and Roman will take the details directly.');
+      show('err', 'The form could not send. Call or text 289-237-1389 and we will take the details directly.');
     } finally { btn.disabled = false; btn.textContent = 'REQUEST A QUOTE'; }
   });
 })();

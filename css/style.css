@@ -26,7 +26,7 @@ p{margin:0}
 .outline{color:transparent;-webkit-text-stroke:1px rgba(201,162,39,.55)}
 
 /* grain overlay */
-.grain{position:fixed;inset:-50%;width:200%;height:200%;pointer-events:none;z-index:200;opacity:.06;
+.grain{position:fixed;inset:-50%;width:200%;height:200%;pointer-events:none;z-index:200;opacity:.035;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   animation:grain 1.2s steps(6) infinite}
 @keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-4%,3%)}40%{transform:translate(3%,-5%)}60%{transform:translate(-5%,-2%)}80%{transform:translate(4%,4%)}100%{transform:translate(-2%,5%)}}
@@ -94,10 +94,10 @@ body.menu-open .menu li:nth-child(1) a{transition-delay:.25s}body.menu-open .men
 /* hero */
 .hero{position:relative;height:100svh;min-height:640px;overflow:hidden;isolation:isolate}
 .hero .media{position:absolute;inset:0;z-index:-2;will-change:transform}
-.hero video{width:100%;height:100%;object-fit:cover;filter:saturate(.55) contrast(1.1) brightness(.75)}
+.hero video{width:100%;height:100%;object-fit:cover;filter:saturate(.95) contrast(1.06) brightness(.95)}
 .hero::before{content:"";position:absolute;inset:0;z-index:-1;background:
-  radial-gradient(ellipse 80% 60% at 50% 100%,rgba(5,5,6,.95),transparent 70%),
-  linear-gradient(180deg,rgba(5,5,6,.75) 0%,rgba(5,5,6,.2) 40%,rgba(5,5,6,.35) 70%,var(--ink) 100%)}
+  radial-gradient(ellipse 90% 55% at 50% 100%,rgba(5,5,6,.85),transparent 72%),
+  linear-gradient(180deg,rgba(5,5,6,.5) 0%,rgba(5,5,6,.06) 35%,rgba(5,5,6,.2) 65%,var(--ink) 100%)}
 .hero .wrap{position:relative;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:clamp(40px,7vh,84px)}
 .hero-kicker{display:flex;align-items:center;gap:18px;font-family:var(--display);font-size:clamp(11px,1.1vw,13px);letter-spacing:.42em;color:var(--gold);margin-bottom:clamp(18px,3vh,34px)}
 .hero-kicker i{display:block;width:56px;height:1px;background:var(--gold)}
@@ -182,6 +182,9 @@ section{position:relative;padding-block:clamp(96px,14vw,200px)}
 .owner .av{width:72px;height:72px;flex:none;border-radius:50%;background:var(--foil);background-size:250% 100%;animation:foil 9s linear infinite;display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:26px;color:#1A1408}
 .owner b{display:block;font-family:var(--display);font-size:20px;letter-spacing:.04em}
 .owner span{color:var(--mist);font-size:14px}
+.team-media{position:relative;margin-top:16px;aspect-ratio:16/10;overflow:hidden;border:1px solid var(--hair);background:var(--char)}
+.team-media video{width:100%;height:100%;object-fit:cover;filter:saturate(.75) contrast(1.05) brightness(.85)}
+.team-media span{position:absolute;left:18px;bottom:16px;font-family:var(--display);font-size:11px;letter-spacing:.3em;color:var(--gold-l);background:rgba(5,5,6,.55);padding:8px 12px;backdrop-filter:blur(6px)}
 @media (max-width:900px){.standard .wrap{grid-template-columns:1fr}.standard .sticky{position:static}}
 
 /* areas marquee */
