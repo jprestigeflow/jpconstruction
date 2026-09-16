@@ -9,15 +9,15 @@
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/favicon.png">
 <meta property="og:type" content="website">
-<meta property="og:title" content="J Prestige Construction — 40 years. One standard.">
+<meta property="og:title" content="J Prestige Construction — Forty years of building. One standard.">
 <meta property="og:description" content="Licensed and insured general contractor since 1985. Hamilton to Toronto. Call Roman: 289-237-1389.">
 <meta property="og:image" content="https://jpconstruction.pages.dev/assets/og.png">
 <meta property="og:url" content="https://jpconstruction.pages.dev/">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0B0B0C">
+<meta name="theme-color" content="#050506">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"GeneralContractor","name":"J Prestige Construction","alternateName":"JPC","url":"https://jpconstruction.pages.dev/","logo":"https://jpconstruction.pages.dev/assets/og.png","image":"https://jpconstruction.pages.dev/assets/og.png","telephone":"+1-289-237-1389","email":"romanojano78@gmail.com","foundingDate":"1985","founder":{"@type":"Person","name":"Roman Jano"},"priceRange":"$$$","areaServed":[{"@type":"City","name":"Hamilton"},{"@type":"City","name":"London"},{"@type":"City","name":"Burlington"},{"@type":"City","name":"Oakville"},{"@type":"City","name":"Toronto"},{"@type":"AdministrativeArea","name":"Greater Toronto Area"}],"address":{"@type":"PostalAddress","addressRegion":"ON","addressCountry":"CA"},"knowsAbout":["General contracting","Custom homes","Home renovation","Commercial fit-outs","Construction management"]}
@@ -25,296 +25,254 @@
 </head>
 <body>
 
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="l-in">
+    <div class="l-mark foil" id="lMark">JPC</div>
+    <div class="l-word" id="lWord">J PRESTIGE CONSTRUCTION</div>
+    <div class="l-line"><i id="lLine"></i></div>
+  </div>
+  <div class="l-num" id="lNum">000</div>
+</div>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="cur" aria-hidden="true"></div>
+<div class="cur2" aria-hidden="true"></div>
+
 <header class="nav" id="nav">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="J Prestige Construction home">
+    <a class="brand" href="#top" aria-label="J Prestige Construction home" data-hover>
       <img src="assets/logo-mark.png" alt="" width="480" height="276">
-      <span>J PRESTIGE CONSTRUCTION</span>
     </a>
-    <nav class="nav-links" aria-label="Sections">
-      <a href="#services">Services</a>
-      <a href="#why">Why JPC</a>
-      <a href="#areas">Areas</a>
-      <a href="#process">Process</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <a class="nav-call" href="tel:+12892371389">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.7a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.8 2z"/></svg>
-      <span>289-237-1389<small>Call Roman</small></span>
-    </a>
+    <div class="nav-r">
+      <a class="nav-tel" href="tel:+12892371389" data-hover aria-label="Call 289-237-1389"><span>289-237-1389</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.7a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.8 2z"/></svg></a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu" data-hover><i></i></button>
+    </div>
   </div>
 </header>
+
+<nav class="menu" id="menu" aria-label="Site menu">
+  <div class="wrap">
+    <ul>
+      <li><a href="#services" data-hover><small>01</small>Services</a></li>
+      <li><a href="#standard" data-hover><small>02</small>The standard</a></li>
+      <li><a href="#areas" data-hover><small>03</small>Where we work</a></li>
+      <li><a href="#process" data-hover><small>04</small>Process</a></li>
+      <li><a href="#reviews" data-hover><small>05</small>Clients</a></li>
+      <li><a href="#contact" data-hover><small>06</small>Contact</a></li>
+    </ul>
+    <div class="menu-side">
+      <div><b>CALL ROMAN</b><a href="tel:+12892371389" data-hover>289-237-1389</a></div>
+      <div><b>EMAIL</b><a href="mailto:romanojano78@gmail.com" data-hover style="font-size:17px;font-family:var(--body)">romanojano78@gmail.com</a></div>
+      <div><b>BASED IN</b>Hamilton, Ontario. Working across Burlington, Oakville, Toronto, London and the GTA.</div>
+      <div><b>SINCE</b>1985. Licensed and insured.</div>
+    </div>
+  </div>
+</nav>
 
 <main id="top">
 
 <section class="hero" id="hero">
-  <video autoplay muted loop playsinline preload="metadata" poster="assets/poster.jpg" aria-hidden="true">
-    <source src="assets/hero-720.mp4" type="video/mp4">
-  </video>
+  <div class="media" id="heroMedia">
+    <video autoplay muted loop playsinline preload="metadata" poster="assets/poster.jpg" aria-hidden="true">
+      <source src="assets/hero-720.mp4" type="video/mp4">
+    </video>
+  </div>
   <div class="wrap">
-    <div class="hero-grid">
+    <p class="hero-kicker" id="heroKicker" style="opacity:0"><i></i>GENERAL CONTRACTOR · EST. 1985 · ONTARIO</p>
+    <h1 aria-label="J Prestige Construction">
+      <span class="ln"><span>J PRESTIGE</span></span>
+      <span class="ln"><span class="foil">CONSTRUCTION</span></span>
+    </h1>
+    <div class="hero-foot" id="heroFoot" style="opacity:0">
       <div>
-        <p class="kicker">GENERAL CONTRACTOR SINCE 1985</p>
-        <h1>Forty years<br>of building.<br><em>One standard.</em></h1>
-        <p>Custom homes, high-end renovations and commercial fit-outs, run by one licensed and insured contractor who has seen every way a job can go wrong, and built his name on making sure yours doesn't.</p>
+        <p class="hero-sub">Custom homes, high-end renovations and commercial fit-outs. Forty years on site, one standard, one man answering the phone.</p>
         <div class="hero-cta">
-          <a class="btn btn-gold" href="tel:+12892371389">
+          <a class="btn btn-gold" href="tel:+12892371389" data-magnet data-hover>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.7a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.8 2z"/></svg>
-            Call Roman
+            CALL ROMAN
           </a>
-          <a class="btn btn-line" href="#contact">Get a quote</a>
+          <a class="btn btn-ghost" href="#contact" data-magnet data-hover>REQUEST A QUOTE</a>
         </div>
       </div>
-      <aside class="hero-proof" aria-label="Credentials">
-        <div><b>40+</b><span>years on site</span></div>
-        <div><b>1985</b><span>year established</span></div>
-        <div><b>100%</b><span>projects completed</span></div>
-      </aside>
+      <div class="scroll-cue"><span>SCROLL</span><i></i></div>
     </div>
   </div>
 </section>
 
-<div class="proofline">
+<section class="manifesto marble" id="manifesto">
   <div class="wrap">
-    <span><strong>Licensed and insured</strong> in Ontario</span>
-    <span><strong>$50M+</strong> in projects delivered</span>
-    <span><strong>Hamilton to Toronto</strong> and everywhere between</span>
-    <span>Same-day callback on every enquiry</span>
+    <p class="reveal" id="manifestoText">Forty years of building. One standard. <span class="gold">Every estimate in writing,</span> every site supervised daily, every trade one Roman has trusted for decades. <span class="gold">Nothing left to chance.</span></p>
+    <div class="sig"><i></i><span>ROMAN JANO, OWNER</span></div>
+  </div>
+</section>
+
+<div class="numbers" id="numbers">
+  <div class="wrap">
+    <div class="num"><b class="foil" data-count="40" data-suffix="+">0+</b><span>years of hands-on construction</span></div>
+    <div class="num"><b class="foil">1985</b><span>established in Ontario</span></div>
+    <div class="num"><b class="foil" data-count="50" data-prefix="$" data-suffix="M+">$0M+</b><span>in residential and commercial work delivered</span></div>
+    <div class="num"><b class="foil" data-count="100" data-suffix="%">0%</b><span>of projects completed and handed over</span></div>
   </div>
 </div>
 
-<section class="light" id="services">
-  <div class="wrap">
-    <div class="head rv">
-      <div class="rule"></div>
-      <h2>What we build</h2>
-      <p>Four kinds of work, one crew standard. Every job gets a written estimate, a locked schedule and Roman on site.</p>
-    </div>
-    <div class="services rv">
+<section class="services" id="services">
+  <div class="wrap head">
+    <p class="eyebrow"><i></i>WHAT WE BUILD</p>
+    <h2 class="h2 line-rev"><span>Four disciplines.<br>One crew standard.</span></h2>
+  </div>
+  <div class="svc-pin" id="svcPin">
+    <div class="svc-track" id="svcTrack">
       <article class="svc">
-        <div class="ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M6 42h36M10 42V14l14-8 14 8v28"/><path d="M18 42V28h12v14M20 20h2M26 20h2"/></svg></div>
-        <div>
-          <h3>Custom homes</h3>
-          <p>New builds from foundation to final walkthrough. Roman manages the trades, the inspections and the timeline so you only manage the move-in date.</p>
-        </div>
-        <ul><li>New construction</li><li>Additions</li><li>Garages and coach houses</li></ul>
+        <div class="bg" style="background-image:url(assets/stills/still-1.jpg)"></div>
+        <span class="rn">I</span>
+        <h3>Custom homes</h3>
+        <p>New builds from foundation to final walkthrough. Roman manages the trades, the inspections and the timeline so you only manage the move-in date.</p>
+        <ul><li>NEW CONSTRUCTION</li><li>ADDITIONS</li><li>COACH HOUSES</li></ul>
       </article>
       <article class="svc">
-        <div class="ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M8 40V12h32v28"/><path d="M8 26h32M18 12v14M30 26v14"/><path d="M4 40h40"/></svg></div>
-        <div>
-          <h3>High-end renovations</h3>
-          <p>Kitchens, bathrooms, basements and full-house overhauls. Structural work included, finish detail obsessed over.</p>
-        </div>
-        <ul><li>Kitchens and baths</li><li>Basements</li><li>Whole-home</li></ul>
+        <div class="bg" style="background-image:url(assets/stills/still-6.jpg)"></div>
+        <span class="rn">II</span>
+        <h3>High-end renovations</h3>
+        <p>Kitchens, bathrooms, basements and full-house overhauls. Structural work included, finish detail obsessed over.</p>
+        <ul><li>KITCHENS &amp; BATHS</li><li>BASEMENTS</li><li>WHOLE-HOME</li></ul>
       </article>
       <article class="svc">
-        <div class="ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M6 42h36M10 42V8h20v34M30 18h8v24"/><path d="M15 14h4M21 14h4M15 22h4M21 22h4M15 30h4M21 30h4"/></svg></div>
-        <div>
-          <h3>Commercial fit-outs</h3>
-          <p>Retail, restaurant, office and light industrial. Coordinated electrical, plumbing and structural teams, opened on schedule.</p>
-        </div>
-        <ul><li>Retail and restaurant</li><li>Offices</li><li>Industrial</li></ul>
+        <div class="bg" style="background-image:url(assets/stills/still-11.jpg)"></div>
+        <span class="rn">III</span>
+        <h3>Commercial fit-outs</h3>
+        <p>Retail, restaurant, office and light industrial. Electrical, plumbing and structural teams coordinated by one hand, opened on schedule.</p>
+        <ul><li>RETAIL &amp; RESTAURANT</li><li>OFFICES</li><li>INDUSTRIAL</li></ul>
       </article>
       <article class="svc">
-        <div class="ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M10 10h28v28H10z"/><path d="M16 24l6 6 10-12"/></svg></div>
-        <div>
-          <h3>Site management</h3>
-          <p>Already have plans and a budget? Roman runs the site: subcontractors, permits, the city, deliveries and daily supervision. You hold the keys.</p>
-        </div>
-        <ul><li>Permits and inspections</li><li>Subcontractor network</li><li>Daily supervision</li></ul>
+        <div class="bg" style="background-image:url(assets/stills/still-16.jpg)"></div>
+        <span class="rn">IV</span>
+        <h3>Site management</h3>
+        <p>Already have plans and a budget? Roman runs the site: subcontractors, permits, the city, deliveries and daily supervision. You hold the keys.</p>
+        <ul><li>PERMITS &amp; INSPECTIONS</li><li>SUBCONTRACTORS</li><li>DAILY SUPERVISION</li></ul>
       </article>
     </div>
   </div>
+  <div class="svc-progress"><i id="svcBar"></i></div>
 </section>
 
-<section class="dark" id="why">
+<section class="standard marble" id="standard">
   <div class="wrap">
-    <div class="why-grid">
-      <div>
-        <div class="head rv">
-          <div class="rule"></div>
-          <h2>Why people hire Roman</h2>
-          <p>Most contractor horror stories come down to three things: a vague quote, nobody on site, and subs who never show. Here is how JPC removes all three.</p>
-        </div>
-        <div class="why-list rv">
-          <article>
-            <span class="n">I</span>
-            <div>
-              <h3>A detailed written estimate</h3>
-              <p>Line by line: labour, materials, allowances, timeline. You know what you're paying for before a single wall comes down, and you keep that document through the whole job.</p>
-            </div>
-          </article>
-          <article>
-            <span class="n">II</span>
-            <div>
-              <h3>Roman is on your site, daily</h3>
-              <p>Not a project manager you meet once. The person who quoted the job is the person checking the work every day and answering your calls.</p>
-            </div>
-          </article>
-          <article>
-            <span class="n">III</span>
-            <div>
-              <h3>Subs we've trusted for decades</h3>
-              <p>Electricians, plumbers, framers and finishers who have worked with Roman for years. They show up, they pass inspection, they clean up.</p>
-            </div>
-          </article>
-          <article>
-            <span class="n">IV</span>
-            <div>
-              <h3>Licensed, insured, and we handle the city</h3>
-              <p>Permits, inspections and code compliance are our job, not yours. Fully insured on every project.</p>
-            </div>
-          </article>
-        </div>
+    <div class="sticky">
+      <p class="eyebrow"><i></i>THE J PRESTIGE STANDARD</p>
+      <h2 class="h2 line-rev"><span>Why people<br>hire Roman.</span></h2>
+      <p class="lede" style="margin-top:28px">Most contractor horror stories come down to three things: a vague quote, nobody on site, and subs who never show. JPC removes all three.</p>
+      <div class="owner">
+        <div class="av">RJ</div>
+        <div><b>ROMAN JANO</b><span>Owner and lead contractor. Building in Ontario since 1985.</span></div>
       </div>
-      <div class="stats rv">
-        <div class="stat owner">
-          <div class="av">RJ</div>
-          <div><b>Roman Jano</b><span>Owner and lead contractor, building in Ontario since 1985</span></div>
-        </div>
-        <div class="stat"><b>40+</b><span>years of hands-on construction</span></div>
-        <div class="stat"><b>$50M+</b><span>in residential and commercial work delivered</span></div>
-        <div class="stat"><b>100%</b><span>of projects completed and handed over</span></div>
-      </div>
+    </div>
+    <div class="std-list">
+      <article class="std"><span class="rn">I</span><div><h3>A detailed written estimate</h3><p>Line by line: labour, materials, allowances, timeline. You know what you're paying for before a single wall comes down, and you keep that document through the whole job.</p></div></article>
+      <article class="std"><span class="rn">II</span><div><h3>Roman is on your site, daily</h3><p>Not a project manager you meet once. The person who quoted the job is the person checking the work every day and answering your calls.</p></div></article>
+      <article class="std"><span class="rn">III</span><div><h3>Subs we've trusted for decades</h3><p>Electricians, plumbers, framers and finishers who have worked with Roman for years. They show up, they pass inspection, they clean up.</p></div></article>
+      <article class="std"><span class="rn">IV</span><div><h3>Licensed, insured, and we handle the city</h3><p>Permits, inspections and code compliance are our job, not yours. Fully insured on every project.</p></div></article>
     </div>
   </div>
 </section>
 
 <section class="areas" id="areas">
   <div class="wrap">
-    <div class="rv">
-      <div class="rule"></div>
-      <h2>Where we work</h2>
-      <p>Based in Hamilton, working across southwestern Ontario and the GTA. If your project is within about ninety minutes of Hamilton, Roman will come and look at it.</p>
-    </div>
-    <ul class="cities rv">
-      <li>Hamilton<small>Home base</small></li>
-      <li>Burlington<small>and Waterdown</small></li>
-      <li>Oakville<small>and Milton</small></li>
-      <li>Toronto<small>and Etobicoke</small></li>
-      <li>London<small>and St. Thomas</small></li>
-      <li>The GTA<small>Mississauga to Vaughan</small></li>
-    </ul>
+    <p class="eyebrow"><i></i>WHERE WE WORK</p>
+    <h2 class="h2 line-rev"><span>Hamilton to Toronto,<br>and everywhere between.</span></h2>
   </div>
+  <div class="mq a" data-speed="1"><span class="foil">Hamilton</span><span>Burlington</span><span class="foil">Oakville</span><span>Toronto</span><span class="foil">London</span><span>Mississauga</span><span class="foil">Hamilton</span><span>Burlington</span><span class="foil">Oakville</span><span>Toronto</span><span class="foil">London</span><span>Mississauga</span></div>
+  <div class="mq b" data-speed="-0.7"><span>Waterdown</span><span>Milton</span><span>Etobicoke</span><span>Vaughan</span><span>St. Thomas</span><span>The GTA</span><span>Waterdown</span><span>Milton</span><span>Etobicoke</span><span>Vaughan</span><span>St. Thomas</span><span>The GTA</span></div>
+  <div class="wrap"><p class="note">Based in Hamilton. If your project is within about ninety minutes of the city, Roman will come and look at it in person.</p></div>
 </section>
 
-<section class="dark" id="process">
+<section class="process marble" id="process">
   <div class="wrap">
-    <div class="head rv">
-      <div class="rule"></div>
-      <h2>How a project runs</h2>
-      <p>Three stages, no surprises. You'll know where the job is at every day.</p>
+    <div>
+      <p class="eyebrow"><i></i>HOW A PROJECT RUNS</p>
+      <h2 class="h2 line-rev"><span>Three stages.<br>No surprises.</span></h2>
+      <p class="lede" style="margin-top:28px">You'll know where the job is at every day, from the first site visit to the final walkthrough.</p>
     </div>
-    <div class="steps rv">
-      <article class="step">
-        <div class="n">1</div>
-        <h3>Site visit and scope</h3>
-        <p>Roman walks the site with you, listens to what you want, and flags what the building will and won't allow. You get a written estimate within days.</p>
-        <time>Free, no obligation</time>
-      </article>
-      <article class="step">
-        <div class="n">2</div>
-        <h3>Permits, materials, schedule</h3>
-        <p>We pull the permits, order materials, and lock the trades into a calendar. You sign off on the plan and the dates before work starts.</p>
-        <time>Typically 1 to 3 weeks</time>
-      </article>
-      <article class="step">
-        <div class="n">3</div>
-        <h3>Build and hand over</h3>
-        <p>Daily supervision, a clean site every evening, inspections passed as we go. Final walkthrough together, then the keys are yours.</p>
-        <time>On the agreed schedule</time>
-      </article>
+    <div class="tl" id="tl">
+      <article class="step"><small>STAGE 01</small><h3>Site visit and scope</h3><p>Roman walks the site with you, listens to what you want, and flags what the building will and won't allow. You get a written estimate within days.</p><time>Free, no obligation</time></article>
+      <article class="step"><small>STAGE 02</small><h3>Permits, materials, schedule</h3><p>We pull the permits, order materials, and lock the trades into a calendar. You sign off on the plan and the dates before work starts.</p><time>Typically one to three weeks</time></article>
+      <article class="step"><small>STAGE 03</small><h3>Build and hand over</h3><p>Daily supervision, a clean site every evening, inspections passed as we go. Final walkthrough together, then the keys are yours.</p><time>On the agreed schedule</time></article>
     </div>
   </div>
 </section>
 
-<section class="light" id="reviews">
+<section class="quotes" id="reviews">
   <div class="wrap">
-    <div class="head rv">
-      <div class="rule"></div>
-      <h2>What clients say</h2>
-      <p>Forty years of word-of-mouth. Ask Roman for references in your area.</p>
+    <p class="eyebrow"><i></i>WHAT CLIENTS SAY</p>
+    <div class="quote-stage" id="quoteStage">
+      <figure class="quote on" data-confirm="pending">
+        <div class="qm foil">“</div>
+        <div>
+          <blockquote>Our whole main floor was gutted and rebuilt. Roman was there every single morning, the trades showed up when he said they would, and the finish work is better than the showroom we copied it from.</blockquote>
+          <figcaption><i></i><span><b>DANIELA</b> · Full main-floor renovation, Burlington</span></figcaption>
+        </div>
+      </figure>
+      <figure class="quote" data-confirm="pending">
+        <div class="qm foil">“</div>
+        <div>
+          <blockquote>We hired JPC for a restaurant fit-out on a hard deadline. He coordinated electrical, plumbing and the structural work without a single day lost. We opened early.</blockquote>
+          <figcaption><i></i><span><b>MARCO</b> · Restaurant fit-out, Hamilton</span></figcaption>
+        </div>
+      </figure>
+      <figure class="quote" data-confirm="pending">
+        <div class="qm foil">“</div>
+        <div>
+          <blockquote>The estimate was the most detailed one we received, and it's the number we actually paid. Basement, bathroom, new stairs. Clean site every night. I've already sent him two neighbours.</blockquote>
+          <figcaption><i></i><span><b>PRIYA</b> · Basement and bathroom, Oakville</span></figcaption>
+        </div>
+      </figure>
     </div>
-    <div class="quotes rv">
-      <figure class="q" data-confirm="pending">
-        <div class="stars" aria-label="5 out of 5">★★★★★</div>
-        <blockquote>Our whole main floor was gutted and rebuilt. Roman was there every single morning, the trades actually showed up when he said they would, and the finish work is better than the showroom we copied it from.</blockquote>
-        <figcaption><b>Daniela</b><span>Full main-floor renovation, Burlington</span></figcaption>
-      </figure>
-      <figure class="q" data-confirm="pending">
-        <div class="stars" aria-label="5 out of 5">★★★★★</div>
-        <blockquote>We hired JPC for a restaurant fit-out on a hard deadline. He coordinated electrical, plumbing and the structural work without a single day lost. We opened early.</blockquote>
-        <figcaption><b>Marco</b><span>Restaurant fit-out, Hamilton</span></figcaption>
-      </figure>
-      <figure class="q" data-confirm="pending">
-        <div class="stars" aria-label="5 out of 5">★★★★★</div>
-        <blockquote>The estimate was the most detailed one we received, and it's the number we actually paid. Basement, bathroom, new stairs. Clean site every night. I've already sent him two neighbours.</blockquote>
-        <figcaption><b>Priya</b><span>Basement and bathroom, Oakville</span></figcaption>
-      </figure>
+    <div class="qnav" id="qnav" role="tablist" aria-label="Testimonials">
+      <button class="on" aria-label="Testimonial 1" data-hover></button><button aria-label="Testimonial 2" data-hover></button><button aria-label="Testimonial 3" data-hover></button>
     </div>
   </div>
 </section>
 
-<section class="dark contact" id="contact">
+<section class="contact marble" id="contact">
   <div class="wrap">
-    <div class="rv">
-      <div class="rule"></div>
-      <h2>Talk to Roman about your project</h2>
-      <p class="lead">Call for the fastest answer. Or send the details below and you'll hear back the same day with next steps and a time for a site visit.</p>
-      <div class="direct">
-        <a href="tel:+12892371389">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.7a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.8 2z"/></svg>
-          <div><b>289-237-1389</b><span>Call or text, 7 days a week</span></div>
-        </a>
-        <a href="mailto:romanojano78@gmail.com?subject=Quote%20request%20-%20J%20Prestige%20Construction">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg>
-          <div><b>romanojano78@gmail.com</b><span>Send plans, drawings or photos</span></div>
-        </a>
-      </div>
+    <div>
+      <p class="eyebrow"><i></i>START YOUR BUILD</p>
+      <h2 class="h2 big line-rev"><span>Let's build<br><span class="foil">it right.</span></span></h2>
+      <a class="tel-big" href="tel:+12892371389" data-hover><small>CALL OR TEXT ROMAN</small>289-237-1389</a>
+      <p class="lead">Call for the fastest answer. Or send the details and you'll hear back the same day with next steps and a time for a site visit.</p>
+      <a class="mail" href="mailto:romanojano78@gmail.com?subject=Quote%20request%20-%20J%20Prestige%20Construction" data-hover>romanojano78@gmail.com</a>
     </div>
-
-    <form class="form rv" id="quoteForm" method="POST" action="https://api.web3forms.com/submit" novalidate>
-      <input type="hidden" name="access_key" value="WEB3FORMS_KEY">
-      <input type="hidden" name="subject" value="New quote request from jpconstruction.pages.dev">
-      <input type="hidden" name="from_name" value="J Prestige Construction website">
-      <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <div class="row">
-        <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
-        <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required></div>
-      </div>
-      <div class="row">
-        <div class="field"><label for="f-email">Email (optional)</label><input id="f-email" name="email" type="email" autocomplete="email"></div>
-        <div class="field"><label for="f-city">City</label><input id="f-city" name="city" type="text" autocomplete="address-level2" placeholder="Hamilton, Oakville, Toronto..." required></div>
-      </div>
-      <div class="row">
-        <div class="field"><label for="f-type">Project type</label>
-          <select id="f-type" name="project_type" required>
-            <option value="" selected disabled>Choose one</option>
-            <option>Kitchen or bathroom</option>
-            <option>Basement</option>
-            <option>Whole-home renovation</option>
-            <option>Addition or new build</option>
-            <option>Commercial fit-out</option>
-            <option>Site management only</option>
-            <option>Something else</option>
-          </select></div>
-        <div class="field"><label for="f-budget">Budget range</label>
-          <select id="f-budget" name="budget">
-            <option value="" selected disabled>Choose one</option>
-            <option>Under $25k</option>
-            <option>$25k to $75k</option>
-            <option>$75k to $150k</option>
-            <option>$150k to $500k</option>
-            <option>$500k and up</option>
-            <option>Not sure yet</option>
-          </select></div>
-      </div>
-      <div class="field"><label for="f-msg">Tell Roman about the project</label><textarea id="f-msg" name="message" placeholder="What are you building or changing, and when would you like to start?"></textarea></div>
-      <div class="msg" id="formMsg" role="status" aria-live="polite"></div>
-      <button class="btn btn-gold" type="submit" id="submitBtn">Request a quote</button>
-      <p class="note">Goes straight to Roman. Same-day reply, no spam, no sales team.</p>
-    </form>
+    <div class="glass">
+      <form class="form" id="quoteForm" method="POST" action="https://api.web3forms.com/submit" novalidate>
+        <input type="hidden" name="access_key" value="WEB3FORMS_KEY">
+        <input type="hidden" name="subject" value="New quote request from jpconstruction.pages.dev">
+        <input type="hidden" name="from_name" value="J Prestige Construction website">
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="row">
+          <div class="field"><label for="f-name">NAME</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+          <div class="field"><label for="f-phone">PHONE</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required></div>
+        </div>
+        <div class="row">
+          <div class="field"><label for="f-email">EMAIL (OPTIONAL)</label><input id="f-email" name="email" type="email" autocomplete="email"></div>
+          <div class="field"><label for="f-city">CITY</label><input id="f-city" name="city" type="text" autocomplete="address-level2" required></div>
+        </div>
+        <div class="row">
+          <div class="field"><label for="f-type">PROJECT</label>
+            <select id="f-type" name="project_type" required>
+              <option value="" selected disabled>Choose one</option>
+              <option>Kitchen or bathroom</option><option>Basement</option><option>Whole-home renovation</option><option>Addition or new build</option><option>Commercial fit-out</option><option>Site management only</option><option>Something else</option>
+            </select></div>
+          <div class="field"><label for="f-budget">BUDGET</label>
+            <select id="f-budget" name="budget">
+              <option value="" selected disabled>Choose one</option>
+              <option>Under $25k</option><option>$25k to $75k</option><option>$75k to $150k</option><option>$150k to $500k</option><option>$500k and up</option><option>Not sure yet</option>
+            </select></div>
+        </div>
+        <div class="field"><label for="f-msg">THE PROJECT</label><textarea id="f-msg" name="message" placeholder="What are you building or changing, and when would you like to start?"></textarea></div>
+        <div class="msg" id="formMsg" role="status" aria-live="polite"></div>
+        <button class="btn btn-gold" type="submit" id="submitBtn" data-magnet data-hover>REQUEST A QUOTE</button>
+        <p class="note">Goes straight to Roman. Same-day reply, no sales team.</p>
+      </form>
+    </div>
   </div>
 </section>
 
@@ -323,14 +281,15 @@
 <footer>
   <div class="wrap">
     <div>
-      <img src="assets/logo-wordmark.png" alt="J Prestige Construction" width="720" height="393">
+      <img src="assets/logo-mark.png" alt="J Prestige Construction" width="900" height="405">
+      <div style="font-family:var(--display);font-size:12px;letter-spacing:.42em;color:var(--gold);margin-top:18px">J PRESTIGE CONSTRUCTION</div>
       <p>Licensed and insured general contractor. Custom homes, renovations, commercial fit-outs and site management across Hamilton, southwestern Ontario and the GTA since 1985.</p>
     </div>
     <div>
       <h4>CONTACT</h4>
       <ul>
-        <li><a href="tel:+12892371389">289-237-1389</a></li>
-        <li><a href="mailto:romanojano78@gmail.com">romanojano78@gmail.com</a></li>
+        <li><a href="tel:+12892371389" data-hover>289-237-1389</a></li>
+        <li><a href="mailto:romanojano78@gmail.com" data-hover>romanojano78@gmail.com</a></li>
         <li>Hamilton, Ontario</li>
       </ul>
     </div>
@@ -344,8 +303,8 @@
       </ul>
     </div>
     <div class="copy">
-      <span>© <span id="yr">2026</span> J Prestige Construction. All rights reserved.</span>
-      <span>Roman Jano, Owner</span>
+      <span>© <span id="yr">2026</span> J PRESTIGE CONSTRUCTION</span>
+      <span>ROMAN JANO, OWNER</span>
     </div>
   </div>
 </footer>
@@ -353,14 +312,17 @@
 <div class="stickybar" aria-label="Quick contact">
   <a class="call" href="tel:+12892371389">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.7a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.8 2z"/></svg>
-    Call Roman
+    CALL ROMAN
   </a>
   <a class="text" href="sms:+12892371389&body=Hi%20Roman%2C%20I%27d%20like%20a%20quote%20for%20">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-    Text a photo
+    TEXT A PHOTO
   </a>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
 <script src="js/app.js" defer></script>
 </body>
 </html>

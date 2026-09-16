@@ -1,0 +1,198 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:'CinzelB';src:url('Cinzel-Black.ttf') format('truetype');font-weight:900}
+@font-face{font-family:'CinzelV';src:url('Cinzel.ttf') format('truetype');font-weight:100 900}
+html,body{margin:0;height:100%;background:transparent;overflow:hidden}
+body.black{background:#0B0B0C}
+#stage{position:absolute;inset:0}
+canvas{display:block}
+#word{position:absolute;left:0;right:0;text-align:center;font-family:'CinzelV',serif;font-weight:700;letter-spacing:.42em;text-indent:.42em;
+  color:#D9B546;background:linear-gradient(180deg,#F6E3A0 0%,#D9B546 45%,#9C7A1C 100%);-webkit-background-clip:text;background-clip:text;color:transparent;
+  white-space:nowrap;display:none;filter:drop-shadow(0 0 6px rgba(201,162,39,.25))}
+#est{position:absolute;left:0;right:0;text-align:center;font-family:'CinzelV',serif;font-weight:600;letter-spacing:.5em;text-indent:.5em;color:#8A8478;white-space:nowrap;display:none}
+#rule{position:absolute;left:50%;transform:translateX(-50%);height:2px;background:linear-gradient(90deg,transparent,#C9A227 30%,#F1D77A 50%,#C9A227 70%,transparent);display:none}
+</style>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<script src="https://cdn.jsdelivr.net/npm/opentype.js@1.3.4/dist/opentype.min.js"></script>
+</head><body>
+<div id="stage"></div>
+<div id="word">J PRESTIGE CONSTRUCTION</div>
+<div id="rule"></div>
+<div id="est">EST. 1985</div>
+<script type="module">
+import * as THREE from 'three';
+import { SVGLoader } from 'three/addons/loaders/SVGLoader.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+
+const q = new URLSearchParams(location.search);
+const FONT = { cinzel: 'Cinzel-Black.ttf', anton: 'Anton.ttf', archivo: 'ArchivoBlack.ttf' }[q.get('font') || 'cinzel'];
+const BG = q.get('bg') || 'black';           // black | transparent
+const V = q.get('v') || 'mark';              // mark | wordmark | avatar | og
+const W = +q.get('w') || innerWidth, H = +q.get('h') || innerHeight;
+const FILL = +q.get('fill') || 0.78;         // fraction of width the letters occupy
+const YOFF = +q.get('y') || 0;               // vertical shift of letters (fraction of height, + = up)
+const GLOW = q.get('glow') !== '0';
+const TILT = +(q.get('tilt') ?? 1);
+const BLOOM = +(q.get('bloom') ?? 0.28), GLOWA = +(q.get('glowa') ?? 0.07), SP = +(q.get('sp') ?? 0.03), EXP = +(q.get('exp') ?? 1.1), BEV = +(q.get('bev') ?? 0.22), RIMO = +(q.get('rimo') ?? 0.55);
+document.body.classList.toggle('black', BG === 'black');
+
+// ---------- renderer ----------
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true, powerPreference: 'high-performance' });
+renderer.setPixelRatio(1); renderer.setSize(W, H);
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = EXP;
+renderer.setClearColor(0x000000, 0);
+document.getElementById('stage').appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+if (BG === 'black') scene.background = new THREE.Color(0x0B0B0C);
+const camera = new THREE.PerspectiveCamera(28, W / H, 0.1, 100);
+
+// ---------- environment: custom studio (bright strips → crisp gold reflections) ----------
+const pmrem = new THREE.PMREMGenerator(renderer);
+function studioEnv() {
+  const s = new THREE.Scene();
+  s.background = new THREE.Color(0x050505);
+  const add = (w, h, x, y, z, ry, rx, c, i) => {
+    const m = new THREE.Mesh(new THREE.PlaneGeometry(w, h), new THREE.MeshBasicMaterial({ color: c }));
+    m.material.color.multiplyScalar(i); m.position.set(x, y, z); m.rotation.set(rx, ry, 0); m.lookAt(0, 0, 0); s.add(m);
+  };
+  // big warm softbox top-left, cool strip right, thin bright highlight strips
+  add(7, 2.2, -5, 6, 3, 0, 0, 0xfff3d6, 5);
+  add(1.2, 9, 8, 0, 1, 0, 0, 0xe8f0ff, 3.5);
+  add(14, .35, 0, 7.5, 0, 0, 0, 0xffffff, 14);
+  add(14, .3, 0, -5.5, 4, 0, 0, 0xffe0a0, 6);
+  add(1.5, 1.5, -2, 1, 9, 0, 0, 0xffffff, 4);
+  add(10, 3, 0, 2, -9, 0, 0, 0x201a10, 1);
+  // banded gradient wall BEHIND the camera: what the flat faces reflect
+  const cv = document.createElement('canvas'); cv.width = 64; cv.height = 1024; const cx = cv.getContext('2d');
+  const gr = cx.createLinearGradient(0, 0, 0, 1024);
+  gr.addColorStop(0.00, '#fff8e6'); gr.addColorStop(0.18, '#f7dc8a'); gr.addColorStop(0.36, '#8a6a1a');
+  gr.addColorStop(0.48, '#1a1408'); gr.addColorStop(0.56, '#3a2c0c'); gr.addColorStop(0.70, '#e8c766');
+  gr.addColorStop(0.84, '#fff3c4'); gr.addColorStop(1.00, '#2a2010');
+  cx.fillStyle = gr; cx.fillRect(0, 0, 64, 1024);
+  const wallTex = new THREE.CanvasTexture(cv); wallTex.colorSpace = THREE.SRGBColorSpace;
+  const wall = new THREE.Mesh(new THREE.PlaneGeometry(60, 40), new THREE.MeshBasicMaterial({ map: wallTex }));
+  wall.material.color.multiplyScalar(2.2); wall.position.set(0, 0, 16); wall.lookAt(0, 0, 0); s.add(wall);
+  // dark floor / ceiling to keep contrast (dark reflections in faces)
+  const floor = new THREE.Mesh(new THREE.PlaneGeometry(30, 30), new THREE.MeshBasicMaterial({ color: 0x0a0806 }));
+  floor.rotation.x = -Math.PI / 2; floor.position.y = -8; s.add(floor);
+  return s;
+}
+const env = pmrem.fromScene(studioEnv(), 0.04).texture;
+scene.environment = env;
+
+// ---------- lights ----------
+const key = new THREE.SpotLight(0xfff0cc, 110, 60, 0.6, 0.5, 1.4); key.position.set(-8, 10, 12); scene.add(key);
+const rim = new THREE.SpotLight(0xffe9b0, 70, 60, 0.7, 0.6, 1.4); rim.position.set(10, 4, -6); scene.add(rim);
+const fill = new THREE.PointLight(0xffd27a, 30, 60, 1.6); fill.position.set(6, -4, 10); scene.add(fill);
+scene.add(new THREE.AmbientLight(0x2a2010, 0.6));
+
+// ---------- materials ----------
+const goldFace = new THREE.MeshPhysicalMaterial({
+  color: 0xD4AF37, metalness: 1, roughness: 0.16, clearcoat: 0.35, clearcoatRoughness: 0.12,
+  envMapIntensity: 1.35, reflectivity: 1
+});
+const goldBevel = new THREE.MeshPhysicalMaterial({
+  color: 0xF3D27A, metalness: 1, roughness: 0.12, clearcoat: 0.5, clearcoatRoughness: 0.08, envMapIntensity: 1.7
+});
+const darkSide = new THREE.MeshPhysicalMaterial({
+  color: 0x14100a, metalness: 0.95, roughness: 0.42, envMapIntensity: 0.6, emissive: 0x2a1c05, emissiveIntensity: 0.35
+});
+
+// ---------- text → shapes ----------
+function pathToShapes(font, text, size, spacing) {
+  const p = font.getPath(text, 0, 0, size, { kerning: true, letterSpacing: spacing });
+  p.commands.forEach(c => { if ('y' in c) c.y = -c.y; if ('y1' in c) c.y1 = -c.y1; if ('y2' in c) c.y2 = -c.y2; });
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg"><path d="${p.toPathData(3)}"/></svg>`;
+  const data = new SVGLoader().parse(svg);
+  return data.paths.flatMap(pp => SVGLoader.createShapes(pp));
+}
+
+function build(font) {
+  const size = 10;
+  const shapes = pathToShapes(font, 'JPC', size, SP);
+  const g = new THREE.Group();
+
+  // front: gold face with wide, crisp bevel (material groups: 0 = caps, 1 = sides+bevel)
+  const front = new THREE.ExtrudeGeometry(shapes, { depth: 0.55, bevelEnabled: true, bevelThickness: BEV*1.2, bevelSize: BEV, bevelOffset: 0, bevelSegments: 8, curveSegments: 28 });
+  const frontMesh = new THREE.Mesh(front, [goldFace, goldBevel]);
+  g.add(frontMesh);
+
+  // back: dark extrusion, no bevel, pushed behind → the JPF "thick block" read
+  const back = new THREE.ExtrudeGeometry(shapes, { depth: 1.9, bevelEnabled: true, bevelThickness: 0.18, bevelSize: 0.16, bevelSegments: 3, curveSegments: 28 });
+  const backMesh = new THREE.Mesh(back, [darkSide, darkSide]);
+  backMesh.position.z = -1.9; g.add(backMesh);
+
+  // rim light line: thin bright gold outline slightly behind the face edge → catches bloom
+  const rimGeo = new THREE.ExtrudeGeometry(shapes, { depth: 0.06, bevelEnabled: true, bevelThickness: 0.06, bevelSize: BEV + 0.12, bevelSegments: 2, curveSegments: 28 });
+  const rimMat = new THREE.MeshBasicMaterial({ color: 0xE0B84A, transparent: true, opacity: RIMO });
+  const rimMesh = new THREE.Mesh(rimGeo, rimMat); rimMesh.position.z = -0.12; g.add(rimMesh);
+
+  // centre + tilt
+  const box = new THREE.Box3().setFromObject(g); const c = box.getCenter(new THREE.Vector3()); const sz = box.getSize(new THREE.Vector3());
+  g.position.set(-c.x, -c.y, -c.z);
+  const outer = new THREE.Group(); outer.add(g);
+  outer.rotation.set(0.10 * TILT, -0.20 * TILT, 0.0);
+  scene.add(outer);
+
+  // glow backdrop (soft radial gold) – only on black bg
+  if (GLOW && BG === 'black') {
+    const cv = document.createElement('canvas'); cv.width = cv.height = 512; const ctx = cv.getContext('2d');
+    const gr = ctx.createRadialGradient(256, 256, 20, 256, 256, 256);
+    gr.addColorStop(0, `rgba(230,190,80,${GLOWA*2})`); gr.addColorStop(0.35, `rgba(201,162,39,${GLOWA*0.8})`); gr.addColorStop(1, 'rgba(201,162,39,0)');
+    ctx.fillStyle = gr; ctx.fillRect(0, 0, 512, 512);
+    const tex = new THREE.CanvasTexture(cv); tex.colorSpace = THREE.SRGBColorSpace;
+    const glow = new THREE.Mesh(new THREE.PlaneGeometry(sz.x * 1.6, sz.y * 2.2), new THREE.MeshBasicMaterial({ map: tex, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending }));
+    glow.position.z = -3.2; scene.add(glow);
+  }
+
+  // fit camera: letters occupy FILL of width
+  const fovY = THREE.MathUtils.degToRad(camera.fov);
+  const wantW = sz.x * 1.08 / FILL;
+  const distW = (wantW / camera.aspect) / (2 * Math.tan(fovY / 2));
+  const distH = (sz.y * 1.25) / (2 * Math.tan(fovY / 2));
+  const dist = Math.max(distW, distH);
+  camera.position.set(0, 0, dist);
+  camera.lookAt(0, 0, 0);
+  const shift = YOFF * (2 * dist * Math.tan(fovY / 2));
+  outer.position.y = shift;
+  if (scene.children.includes(scene.getObjectByProperty('type', 'Mesh'))) {}
+  scene.traverse(o => { if (o.geometry && o.geometry.type === 'PlaneGeometry') o.position.y += shift; });
+
+  // HTML wordmark overlay
+  const px = (frac) => H * (0.5 - (YOFF)) + frac; // baseline reference below centre
+  const proj = (y) => { const v = new THREE.Vector3(0, y, 0); v.project(camera); return (1 - v.y) / 2 * H; };
+  const bottom = proj(-sz.y / 2 + shift) ;
+  if (V === 'wordmark' || V === 'og') {
+    const word = document.getElementById('word'), rule = document.getElementById('rule'), est = document.getElementById('est');
+    const fs = W * (V === 'og' ? 0.028 : 0.026);
+    word.style.cssText += `display:block;top:${bottom + H * 0.045}px;font-size:${fs}px`;
+    rule.style.cssText += `display:block;top:${bottom + H * 0.03}px;width:${W * 0.46}px`;
+    est.style.cssText += `display:block;top:${bottom + H * 0.045 + fs * 1.9}px;font-size:${fs * 0.5}px`;
+  }
+}
+
+// ---------- post ----------
+let composer = null;
+if (BG === 'black') {
+  composer = new EffectComposer(renderer);
+  composer.addPass(new RenderPass(scene, camera));
+  const bloom = new UnrealBloomPass(new THREE.Vector2(W, H), BLOOM, 0.5, 0.9);
+  composer.addPass(bloom);
+  composer.addPass(new OutputPass());
+}
+
+opentype.load(FONT, (err, font) => {
+  if (err) { console.error('font load failed', err); window.__error = String(err); return; }
+  build(font);
+  const draw = () => { composer ? composer.render() : renderer.render(scene, camera); };
+  draw(); requestAnimationFrame(() => { draw(); requestAnimationFrame(() => { draw(); window.__ready = true; }); });
+});
+</script>
+</body></html>
