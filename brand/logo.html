@@ -1,0 +1,46 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#C9A227;--gold-l:#F1D77A;--gold-d:#7A5C0E;--ink:#0B0B0C;--cream:#F4EFE6}
+html,body{margin:0;height:100%}
+body{display:grid;place-items:center;font-family:Cinzel,serif;background:transparent}
+body.black{background:var(--ink)} body.cream{background:var(--cream)}
+.wrap{display:flex;flex-direction:column;align-items:center;gap:0}
+.mark{position:relative;font-weight:900;line-height:.9;letter-spacing:-.02em;font-size:var(--s,420px);
+  display:inline-block;white-space:nowrap}
+.mark .layer{position:absolute;inset:0;pointer-events:none}
+/* extrude / bevel base */
+.mark .base{color:#1a1408;text-shadow:
+  1px 1px 0 #3a2c08,2px 2px 0 #3a2c08,3px 3px 0 #2c2106,4px 4px 0 #2c2106,5px 5px 0 #1f1704,6px 6px 0 #1f1704,
+  7px 7px 0 #150f02,8px 8px 0 #150f02,10px 12px 24px rgba(0,0,0,.65)}
+/* gold face */
+.mark .face{background:linear-gradient(175deg,#FFF3B0 0%,#F1D77A 18%,#C9A227 42%,#8C6D14 50%,#D9B546 58%,#F5E08E 78%,#B8922A 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 0 2px rgba(255,230,150,.45))}
+/* inner highlight rim */
+.mark .rim{color:transparent;-webkit-text-stroke:1.5px rgba(255,244,200,.55);}
+/* glow */
+.mark .glow{color:transparent;text-shadow:0 0 28px rgba(201,162,39,.45),0 0 70px rgba(201,162,39,.25)}
+.word{margin-top:calc(var(--s,420px)*.06);font-weight:600;letter-spacing:.42em;text-indent:.42em;
+  font-size:calc(var(--s,420px)*.105);color:var(--gold);white-space:nowrap}
+body.cream .word{color:#7A5C0E}
+.rule{width:calc(var(--s,420px)*1.9);height:2px;margin-top:calc(var(--s,420px)*.05);
+  background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.est{margin-top:calc(var(--s,420px)*.035);font-family:Inter,sans-serif;font-weight:600;letter-spacing:.38em;text-indent:.38em;
+  font-size:calc(var(--s,420px)*.045);color:#8A8478}
+</style></head><body>
+<div class="wrap" id="w">
+  <div class="mark" id="m"><span class="layer glow">JPC</span><span class="layer base">JPC</span><span class="face" style="position:relative">JPC</span><span class="layer rim">JPC</span></div>
+  <div class="rule" id="r"></div>
+  <div class="word" id="t">J&nbsp;PRESTIGE&nbsp;CONSTRUCTION</div>
+  <div class="est" id="e">EST. 1985 · ONTARIO</div>
+</div>
+<script>
+const q=new URLSearchParams(location.search);
+document.body.classList.add(q.get('bg')||'transparent');
+const v=q.get('v')||'wordmark';
+const s=+q.get('s')||420;document.documentElement.style.setProperty('--s',s+'px');
+if(v==='mark'){r.remove();t.remove();e.remove()}
+if(v==='avatar'){t.remove();e.remove();r.remove()}
+if(v==='nav'){e.remove();r.remove();t.style.marginTop='0';document.getElementById('w').style.flexDirection='row';t.style.letterSpacing='.28em';t.style.textIndent='0';t.style.marginLeft='.35em';t.style.fontSize=(s*.19)+'px';t.style.lineHeight='1.15';t.style.whiteSpace='normal';t.style.width=(s*1.6)+'px'}
+</script></body></html>

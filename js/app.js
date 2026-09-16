@@ -1,84 +1,84 @@
+/* J Prestige Construction — site behaviour */
+(function () {
+  const PHONE = '2892371389';
 
-document.addEventListener("DOMContentLoaded", () => {
-    gsap.registerPlugin(ScrollTrigger);
+  // nav background after scroll
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('solid', window.scrollY > 40);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
 
-    // 1. SLIDING DOORS LOGIC
-    const tl = gsap.timeline();
-    const video = document.getElementById('hero-video');
+  // section reveals (one-shot)
+  const rv = document.querySelectorAll('.rv');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
+    rv.forEach((el) => io.observe(el));
+  } else {
+    rv.forEach((el) => el.classList.add('in'));
+  }
 
-    // Pull doors apart
-    tl.to(".door-left", { x: "-100%", duration: 1.5, ease: "power4.inOut", delay: 0.5 })
-      .to(".door-right", { x: "100%", duration: 1.5, ease: "power4.inOut" }, "<")
-      .to(".door-overlay", { display: "none" });
+  // year
+  const yr = document.getElementById('yr');
+  if (yr) yr.textContent = String(new Date().getFullYear());
 
-    // Force video play once doors open
-    setTimeout(() => {
-        if(video) video.play();
-    }, 1000);
+  // quote form
+  const form = document.getElementById('quoteForm');
+  if (!form) return;
+  const msg = document.getElementById('formMsg');
+  const btn = document.getElementById('submitBtn');
+  const keyInput = form.querySelector('input[name="access_key"]');
+  const hasKey = keyInput && keyInput.value && keyInput.value !== 'WEB3FORMS_KEY';
 
-    // 2. Hero Animation
-    gsap.from(".hero-glass-card", {
-        y: 100, opacity: 0, duration: 1.5, delay: 2.2, ease: "power3.out"
-    });
+  const show = (kind, text) => { msg.className = 'msg ' + kind; msg.textContent = text; };
 
-    // 3. Scroll Staggers
-    gsap.from(".service-item", {
-        scrollTrigger: { trigger: "#expertise", start: "top 80%" },
-        y: 50, opacity: 0, duration: 0.8, stagger: 0.1
-    });
+  const summary = (fd) => {
+    const g = (k) => (fd.get(k) || '').toString().trim();
+    return [
+      'Hi Roman, quote request from the website.',
+      'Name: ' + g('name'),
+      'Phone: ' + g('phone'),
+      g('email') ? 'Email: ' + g('email') : '',
+      'City: ' + g('city'),
+      'Project: ' + g('project_type'),
+      g('budget') ? 'Budget: ' + g('budget') : '',
+      g('message') ? 'Details: ' + g('message') : ''
+    ].filter(Boolean).join('\n');
+  };
 
-    gsap.from(".review-card", {
-        scrollTrigger: { trigger: "#testimonials", start: "top 80%" },
-        y: 50, opacity: 0, duration: 0.8, stagger: 0.1
-    });
+  form.addEventListener('submit', async (ev) => {
+    ev.preventDefault();
+    if (!form.reportValidity()) return;
+    const fd = new FormData(form);
 
-    // 4. Comparison Slider
-    const slider = document.querySelector(".comparison-slider");
-    const beforeWrapper = document.querySelector(".img-before-wrapper");
-    const handle = document.querySelector(".handle");
-
-    const moveSlider = (x) => {
-        let rect = slider.getBoundingClientRect();
-        let pos = ((x - rect.left) / rect.width) * 100;
-        if(pos < 0) pos = 0;
-        if(pos > 100) pos = 100;
-        beforeWrapper.style.width = pos + "%";
-        handle.style.left = pos + "%";
-    };
-
-    if(slider) {
-        slider.addEventListener("mousemove", (e) => moveSlider(e.clientX));
-        slider.addEventListener("touchmove", (e) => moveSlider(e.touches[0].clientX));
+    if (!hasKey) {
+      // fallback until the Web3Forms key is set: hand off to SMS / email
+      const body = summary(fd);
+      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+      const sep = /iPhone|iPad|iPod/i.test(navigator.userAgent) ? '&' : '?';
+      const href = isMobile
+        ? 'sms:+1' + PHONE + sep + 'body=' + encodeURIComponent(body)
+        : 'mailto:romanojano78@gmail.com?subject=' + encodeURIComponent('Quote request - J Prestige Construction') + '&body=' + encodeURIComponent(body);
+      window.location.href = href;
+      show('ok', isMobile ? 'Opening your messages app with the details filled in. Hit send and Roman will call you back today.' : 'Opening your email with the details filled in. Send it and Roman will reply today.');
+      return;
     }
 
-    // 5. Form Logic
-    window.nextStep = (step) => {
-        const current = document.querySelector('.form-step.active');
-        const next = document.querySelector(`[data-step="${step}"]`);
-        const bar = document.querySelector('.progress-fill');
-        
-        current.classList.remove('active');
-        next.classList.add('active');
-        
-        if(step === 2) bar.style.width = "66%";
-        if(step === 3) bar.style.width = "100%";
-    };
-
-    window.prevStep = (step) => {
-        document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
-        document.querySelector(`[data-step="${step}"]`).classList.add('active');
-        
-        const bar = document.querySelector('.progress-fill');
-        if(step === 1) bar.style.width = "33%";
-        if(step === 2) bar.style.width = "66%";
-    };
-
-    // Form Submission Handler
-    const form = document.getElementById('leadForm');
-    if(form) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert("Request Sent! (Demo Mode)");
-        });
+    btn.disabled = true; btn.textContent = 'Sending...';
+    try {
+      const res = await fetch(form.action, { method: 'POST', body: fd, headers: { Accept: 'application/json' } });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.success !== false) {
+        form.reset();
+        show('ok', 'Sent. Roman will call you back today. If it is urgent, call 289-237-1389 now.');
+      } else {
+        throw new Error(data.message || 'Send failed');
+      }
+    } catch (err) {
+      show('err', 'The form could not send. Call or text 289-237-1389 and Roman will take the details directly.');
+    } finally {
+      btn.disabled = false; btn.textContent = 'Request a quote';
     }
-});
+  });
+})();

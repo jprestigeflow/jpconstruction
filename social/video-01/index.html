@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>JPC — 40 Years. One Standard.</title>
+    <style>
+/* latin-ext */
+@font-face {
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url(assets/fonts/8vIJ7ww63mVu7gt7-GT7PkRXM8Xx.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url(assets/fonts/8vIJ7ww63mVu7gt79mT7PkRXMw.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(assets/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2JL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(assets/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa0ZL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(assets/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2ZL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(assets/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1pL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(assets/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2pL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(assets/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(assets/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(assets/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2JL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(assets/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa0ZL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(assets/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2ZL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(assets/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1pL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(assets/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2pL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(assets/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(assets/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(assets/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2JL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(assets/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa0ZL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(assets/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2ZL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(assets/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1pL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(assets/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2pL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(assets/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(assets/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(assets/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2JL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(assets/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa0ZL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(assets/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2ZL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(assets/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1pL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(assets/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2pL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(assets/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(assets/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+</style>
+    <script src="vendor/gsap.min.js"></script>
+    <style>
+      :root {
+        --ink: #0b0b0c;
+        --char: #141416;
+        --gold: #c9a227;
+        --gold-l: #e8c766;
+        --gold-d: #8c6d14;
+        --cream: #f4efe6;
+        --muted: #8a8478;
+      }
+      html, body { margin: 0; padding: 0; background: #000; }
+      body { font-family: Inter, system-ui, sans-serif; color: var(--cream); }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: var(--ink); }
+
+      /* ---------- persistent layers ---------- */
+      .bg { position: absolute; inset: 0; background:
+        radial-gradient(120% 80% at 50% 0%, #1a1a1d 0%, var(--ink) 55%, #060607 100%); }
+      .sweep { position: absolute; top: -40%; left: 0; width: 520px; height: 180%; transform: rotate(18deg);
+        background: linear-gradient(90deg, rgba(201,162,39,0) 0%, rgba(201,162,39,.10) 45%, rgba(232,199,102,.16) 50%, rgba(201,162,39,.10) 55%, rgba(201,162,39,0) 100%);
+        filter: blur(6px); will-change: transform; }
+      .grain { position: absolute; inset: 0; opacity: .08; mix-blend-mode: overlay;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' seed='7' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .9 0'/></filter><rect width='300' height='300' filter='url(%23n)'/></svg>");
+        background-size: 300px 300px; }
+      .vignette { position: absolute; inset: 0; background: radial-gradient(80% 70% at 50% 50%, rgba(0,0,0,0) 45%, rgba(0,0,0,.65) 100%); }
+      .frame { position: absolute; inset: 56px; border: 1px solid rgba(201,162,39,.18); pointer-events: none; }
+      .frame::before, .frame::after { content: ""; position: absolute; width: 70px; height: 70px; border-color: var(--gold); border-style: solid; }
+      .frame::before { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
+      .frame::after { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+
+      /* ---------- scene shell (safe area = middle 80%) ---------- */
+      .scene { position: absolute; inset: 0; box-sizing: border-box; padding: 260px 96px 300px; display: flex; flex-direction: column; justify-content: center; }
+      .brandbar { position: absolute; top: 150px; left: 0; width: 100%; display: flex; justify-content: center; }
+      .brandbar img { width: 180px; height: auto; display: block; }
+
+      .cinzel { font-family: Cinzel, Georgia, serif; }
+      .gold { color: var(--gold); }
+      .goldtxt { background: linear-gradient(175deg, #fff3b0 0%, #f1d77a 20%, #c9a227 48%, #8c6d14 56%, #d9b546 64%, #f5e08e 82%, #b8922a 100%);
+        -webkit-background-clip: text; background-clip: text; color: transparent; }
+      .kicker { font-family: Inter; font-weight: 600; font-size: 30px; letter-spacing: .38em; text-transform: uppercase; color: var(--gold); }
+      .rule { display: block; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); transform-origin: 50% 50%; }
+
+      /* ---------- S1 hook ---------- */
+      .h1 { font-family: Cinzel; font-weight: 900; line-height: .95; letter-spacing: -.01em; margin: 0; }
+      .h1 .w { display: block; }
+      #s1-a { font-size: 168px; }
+      #s1-b { font-size: 112px; color: var(--cream); font-weight: 700; margin-top: 10px; }
+      #s1-c { font-size: 100px; margin-top: 70px; font-weight: 700; }
+      #s1-rule { margin: 44px 0 0; width: 520px; }
+
+      /* ---------- S2 brand ---------- */
+      #s2 { align-items: center; text-align: center; }
+      #s2-logo { width: 880px; height: auto; display: block; }
+      .chips { display: flex; gap: 26px; margin-top: 90px; flex-wrap: wrap; justify-content: center; }
+      .chip { display: block; box-sizing: border-box; border: 2px solid var(--gold); padding: 22px 40px; font-family: Inter; font-weight: 600; font-size: 34px; letter-spacing: .22em; color: var(--cream); background: rgba(201,162,39,.06); }
+      .chip.solid { background: var(--gold); color: var(--ink); }
+
+      /* ---------- S3 services ---------- */
+      .list { display: flex; flex-direction: column; gap: 46px; margin-top: 60px; }
+      .item { display: flex; align-items: baseline; gap: 34px; }
+      .item .n { font-family: Cinzel; font-weight: 700; font-size: 40px; color: var(--gold); width: 80px; flex: 0 0 80px; }
+      .item .t { font-family: Cinzel; font-weight: 700; font-size: 66px; line-height: 1.05; color: var(--cream); }
+      .item .ln { position: absolute; left: 0; bottom: -20px; height: 1px; width: 100%; background: rgba(201,162,39,.35); }
+      .item { position: relative; padding-bottom: 12px; }
+
+      /* ---------- S4 pillars ---------- */
+      .cards { display: flex; flex-direction: column; gap: 40px; margin-top: 60px; }
+      .card { box-sizing: border-box; border-left: 6px solid var(--gold); background: linear-gradient(90deg, rgba(201,162,39,.10), rgba(201,162,39,0) 70%); padding: 40px 44px; }
+      .card .big { font-family: Cinzel; font-weight: 700; font-size: 62px; line-height: 1.05; color: var(--cream); }
+      .card .sm { font-family: Inter; font-weight: 500; font-size: 30px; color: var(--muted); margin-top: 14px; letter-spacing: .02em; }
+
+      /* ---------- S5 cities ---------- */
+      #s5 { align-items: center; text-align: center; }
+      .cities { display: flex; flex-direction: column; align-items: center; gap: 18px; margin-top: 40px; }
+      .city { font-family: Cinzel; font-weight: 900; font-size: 108px; line-height: 1; letter-spacing: .02em; }
+      .city.alt { font-weight: 400; color: var(--muted); font-size: 88px; }
+      #s5-tail { font-family: Inter; font-weight: 500; font-size: 36px; color: var(--muted); margin-top: 64px; letter-spacing: .06em; }
+
+      /* ---------- S6 end ---------- */
+      #s6 { align-items: center; text-align: center; }
+      #s6-logo { width: 760px; height: auto; display: block; }
+      #s6-call { margin-top: 110px; }
+      #s6-phone { font-family: Cinzel; font-weight: 900; font-size: 128px; line-height: 1; letter-spacing: .01em; margin-top: 26px; white-space: nowrap; }
+      #s6-btn { display: block; box-sizing: border-box; margin-top: 70px; background: var(--gold); color: var(--ink); font-family: Inter; font-weight: 700; font-size: 40px; letter-spacing: .12em; padding: 34px 70px; }
+      #s6-url { font-family: Inter; font-weight: 500; font-size: 32px; color: var(--muted); margin-top: 40px; letter-spacing: .08em; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="jpc-video-01" data-start="0" data-width="1080" data-height="1920" data-duration="30">
+      <!-- persistent -->
+      <div class="bg"></div>
+      <div id="sweep" class="sweep"></div>
+      <div class="grain"></div>
+      <div class="vignette"></div>
+      <div class="frame"></div>
+
+      <div id="brandbar" class="clip brandbar" data-start="0" data-duration="24.3" data-track-index="1">
+        <img id="brandbar-img" src="assets/logo-mark.png" alt="" />
+      </div>
+
+      <!-- S1: hook 0 – 3.27 -->
+      <section id="s1" class="clip scene" data-start="0" data-duration="3.27" data-track-index="2">
+        <h1 class="h1"><span id="s1-a" class="w goldtxt">FORTY YEARS</span><span id="s1-b" class="w">OF BUILDING.</span></h1>
+        <span id="s1-rule" class="rule"></span>
+        <h1 class="h1"><span id="s1-c" class="w goldtxt">ONE STANDARD.</span></h1>
+      </section>
+
+      <!-- S2: brand 3.27 – 9.61 -->
+      <section id="s2" class="clip scene" data-start="3.27" data-duration="6.34" data-track-index="2">
+        <img id="s2-logo" src="assets/logo-wordmark.png" alt="J Prestige Construction" />
+        <div class="chips">
+          <span id="chip1" class="chip solid">EST. 1985</span>
+          <span id="chip2" class="chip">LICENSED &amp; INSURED</span>
+        </div>
+      </section>
+
+      <!-- S3: services 9.61 – 15.075 -->
+      <section id="s3" class="clip scene" data-start="9.61" data-duration="5.465" data-track-index="2">
+        <div id="s3-k" class="kicker">What we build</div>
+        <div class="list">
+          <div id="it1" class="item"><span class="n">01</span><span class="t">Custom Homes</span><span class="ln"></span></div>
+          <div id="it2" class="item"><span class="n">02</span><span class="t">High-End Renovations</span><span class="ln"></span></div>
+          <div id="it3" class="item"><span class="n">03</span><span class="t">Commercial Fit-Outs</span><span class="ln"></span></div>
+          <div id="it4" class="item"><span class="n">04</span><span class="t">Full Site Management</span><span class="ln"></span></div>
+        </div>
+      </section>
+
+      <!-- S4: pillars 15.075 – 20.766 -->
+      <section id="s4" class="clip scene" data-start="15.075" data-duration="5.691" data-track-index="2">
+        <div id="s4-k" class="kicker">The J Prestige standard</div>
+        <div class="cards">
+          <div id="c1" class="card"><div class="big">Detailed estimates</div><div class="sm">Line by line. No surprises.</div></div>
+          <div id="c2" class="card"><div class="big">Daily supervision</div><div class="sm">Roman is on your site, not on the phone.</div></div>
+          <div id="c3" class="card"><div class="big">Subs trusted for decades</div><div class="sm">Crews Roman has worked with for years.</div></div>
+        </div>
+      </section>
+
+      <!-- S5: cities 20.766 – 24.304 -->
+      <section id="s5" class="clip scene" data-start="20.766" data-duration="3.538" data-track-index="2">
+        <div id="s5-k" class="kicker">We travel</div>
+        <div class="cities">
+          <div id="ct1" class="city goldtxt">HAMILTON</div>
+          <div id="ct2" class="city alt">LONDON</div>
+          <div id="ct3" class="city">BURLINGTON</div>
+          <div id="ct4" class="city alt">OAKVILLE</div>
+          <div id="ct5" class="city goldtxt">TORONTO</div>
+        </div>
+        <div id="s5-tail">and everywhere in between</div>
+      </section>
+
+      <!-- S6: end card 24.304 – 30 -->
+      <section id="s6" class="clip scene" data-start="24.304" data-duration="5.696" data-track-index="2">
+        <img id="s6-logo" src="assets/logo-wordmark-end.png" alt="J Prestige Construction" />
+        <div id="s6-call" class="kicker">Call Roman</div>
+        <div id="s6-phone" class="goldtxt">289-237-1389</div>
+        <span id="s6-btn">GET A FREE QUOTE</span>
+        <div id="s6-url">jpconstruction.pages.dev</div>
+      </section>
+
+      <!-- voiceover: direct child of root -->
+      <audio id="vo" src="assets/vo/vo.wav" data-start="0" data-duration="30" data-track-index="10" data-volume="1"></audio>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const E = "power3.out", EI = "power2.inOut";
+
+      // gold light sweep across the whole piece (finite, seek-safe)
+      tl.fromTo("#sweep", { x: -700 }, { x: 1500, duration: 30, ease: "none" }, 0);
+
+      // brand bar breathes in
+      tl.from("#brandbar-img", { opacity: 0, y: -20, duration: .8, ease: E }, 0.1);
+
+      // ---- S1 hook (VO 0.4–2.97) ----
+      tl.from("#s1-a", { y: 90, opacity: 0, duration: .7, ease: E }, 0.25);
+      tl.from("#s1-b", { y: 70, opacity: 0, duration: .6, ease: E }, 0.6);
+      tl.fromTo("#s1-rule", { scaleX: 0, opacity: 0 }, { scaleX: 1, opacity: 1, duration: .6, ease: EI }, 1.3);
+      tl.from("#s1-c", { y: 60, opacity: 0, duration: .6, ease: E }, 1.75);
+      tl.to("#s1", { opacity: 0, y: -40, duration: .35, ease: "power2.in" }, 2.92);
+
+      // ---- S2 brand (VO 3.27–9.31) ----
+      tl.from("#s2-logo", { scale: .86, opacity: 0, duration: 1.0, ease: "power4.out" }, 3.3);
+      tl.from("#chip1", { y: 40, opacity: 0, duration: .55, ease: E }, 5.3);
+      tl.from("#chip2", { y: 40, opacity: 0, duration: .55, ease: E }, 6.9);
+      tl.to("#s2", { opacity: 0, duration: .35, ease: "power2.in" }, 9.25);
+
+      // ---- S3 services (VO 9.61–14.77) ----
+      tl.from("#s3-k", { opacity: 0, x: -30, duration: .5, ease: E }, 9.65);
+      const items = ["#it1", "#it2", "#it3", "#it4"], itemAt = [9.9, 11.15, 12.35, 13.55];
+      items.forEach((s, i) => {
+        tl.from(s, { x: 80, opacity: 0, duration: .55, ease: E }, itemAt[i]);
+        tl.fromTo(s + " .ln", { scaleX: 0, transformOrigin: "0 50%" }, { scaleX: 1, duration: .6, ease: EI }, itemAt[i] + .15);
+      });
+      tl.to("#s3", { opacity: 0, y: -30, duration: .35, ease: "power2.in" }, 14.72);
+
+      // ---- S4 pillars (VO 15.075–20.47) ----
+      tl.from("#s4-k", { opacity: 0, x: -30, duration: .5, ease: E }, 15.1);
+      const cards = ["#c1", "#c2", "#c3"], cardAt = [15.35, 17.05, 18.55];
+      cards.forEach((s, i) => tl.from(s, { y: 60, opacity: 0, duration: .6, ease: E }, cardAt[i]));
+      tl.to("#s4", { opacity: 0, y: -30, duration: .35, ease: "power2.in" }, 20.42);
+
+      // ---- S5 cities (VO 20.766–24.0) ----
+      tl.from("#s5-k", { opacity: 0, duration: .4, ease: E }, 20.8);
+      const cities = ["#ct1", "#ct2", "#ct3", "#ct4", "#ct5"];
+      cities.forEach((s, i) => tl.from(s, { y: 50, opacity: 0, duration: .45, ease: E }, 20.95 + i * .42));
+      tl.from("#s5-tail", { opacity: 0, y: 20, duration: .5, ease: E }, 23.2);
+      tl.to("#s5", { opacity: 0, scale: 1.04, duration: .35, ease: "power2.in" }, 23.95);
+
+      // ---- S6 end card (VO 24.304–28.33) ----
+      tl.from("#s6-logo", { scale: .9, opacity: 0, duration: .9, ease: "power4.out" }, 24.35);
+      tl.from("#s6-call", { opacity: 0, y: 20, duration: .5, ease: E }, 25.0);
+      tl.from("#s6-phone", { opacity: 0, y: 40, scale: .96, duration: .7, ease: E }, 25.45);
+      tl.from("#s6-btn", { opacity: 0, y: 30, duration: .55, ease: E }, 27.2);
+      tl.from("#s6-url", { opacity: 0, duration: .5, ease: E }, 27.9);
+      // subtle pulse on the button, finite
+      tl.to("#s6-btn", { scale: 1.04, duration: .45, ease: "sine.inOut", yoyo: true, repeat: 3 }, 28.0);
+
+      window.__timelines["jpc-video-01"] = tl;
+    </script>
+  </body>
+</html>

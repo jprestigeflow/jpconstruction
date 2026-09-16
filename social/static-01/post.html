@@ -1,0 +1,60 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0B0B0C;--char:#141416;--gold:#C9A227;--gold-l:#E8C766;--gold-d:#8C6D14;--cream:#F4EFE6;--muted:#8A8478}
+*{box-sizing:border-box;margin:0}
+html,body{width:1080px;height:1350px;overflow:hidden;background:var(--ink)}
+body.sq{height:1080px}
+.card{position:relative;width:100%;height:100%;overflow:hidden;
+  background:radial-gradient(120% 80% at 50% 0%,#1c1a16 0%,var(--char) 38%,var(--ink) 75%);
+  font-family:Inter,sans-serif;color:var(--cream)}
+/* gold light sweep */
+.sweep{position:absolute;inset:-20%;background:linear-gradient(115deg,transparent 38%,rgba(201,162,39,.09) 47%,rgba(232,199,102,.13) 50%,rgba(201,162,39,.08) 53%,transparent 62%);
+  filter:blur(40px);pointer-events:none}
+/* grain */
+.grain{position:absolute;inset:0;opacity:.13;mix-blend-mode:overlay;pointer-events:none;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+.vig{position:absolute;inset:0;pointer-events:none;background:radial-gradient(90% 70% at 50% 45%,transparent 55%,rgba(0,0,0,.55) 100%)}
+/* thin frame */
+.frame{position:absolute;inset:44px;border:1px solid rgba(201,162,39,.28);pointer-events:none}
+.frame:before,.frame:after{content:"";position:absolute;width:26px;height:26px;border-color:var(--gold);border-style:solid}
+.frame:before{top:-1px;left:-1px;border-width:2px 0 0 2px}
+.frame:after{bottom:-1px;right:-1px;border-width:0 2px 2px 0}
+.inner{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;text-align:center;padding:118px 96px 108px}
+.kicker{font-family:Cinzel,serif;font-weight:600;font-size:22px;letter-spacing:.44em;text-indent:.44em;color:var(--gold);}
+.rule{width:220px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:34px 0 60px}
+.h1{font-family:Cinzel,serif;font-weight:800;font-size:132px;line-height:1.02;letter-spacing:-.01em;
+  background:linear-gradient(178deg,#FFF3B0 0%,#F1D77A 22%,#C9A227 52%,#E8C766 76%,#B8922A 100%);-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 6px 30px rgba(201,162,39,.18))}
+.h1 small{display:block;font-size:96px;font-weight:700;color:var(--cream);-webkit-text-fill-color:var(--cream);background:none;filter:none;margin-top:14px;letter-spacing:.01em}
+.sub{margin-top:58px;font-size:25px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.sub b{color:var(--cream);font-weight:500}
+.spacer{flex:1}
+.logo{width:300px;opacity:.96;margin-bottom:44px;filter:drop-shadow(0 0 22px rgba(201,162,39,.25))}
+.cta{font-family:Cinzel,serif;font-weight:700;font-size:26px;letter-spacing:.32em;text-indent:.32em;color:var(--gold-l);margin-bottom:14px}
+.phone{font-family:Cinzel,serif;font-weight:800;font-size:92px;letter-spacing:.06em;color:var(--cream);line-height:1;text-shadow:0 0 40px rgba(201,162,39,.15)}
+.meta{margin-top:40px;font-size:20px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);line-height:2}
+.meta .g{color:var(--gold)}
+/* square tweaks */
+body.sq .inner{padding:96px 90px 84px}
+body.sq .h1{font-size:112px} body.sq .h1 small{font-size:80px}
+body.sq .rule{margin:26px 0 40px} body.sq .sub{margin-top:36px;font-size:22px}
+body.sq .logo{width:230px;margin-bottom:26px} body.sq .phone{font-size:78px}
+body.sq .meta{margin-top:26px;font-size:18px;line-height:1.8}
+</style></head><body>
+<div class="card">
+  <div class="sweep"></div><div class="grain"></div><div class="vig"></div><div class="frame"></div>
+  <div class="inner">
+    <div class="kicker">J PRESTIGE CONSTRUCTION</div>
+    <div class="rule"></div>
+    <div class="h1">40 years.<small>One standard.</small></div>
+    <div class="sub"><b>Custom homes</b> · <b>Renovations</b> · <b>Commercial fit-outs</b></div>
+    <div class="spacer"></div>
+    <img class="logo" src="jpc-mark-transparent.png" alt="JPC">
+    <div class="cta">CALL ROMAN</div>
+    <div class="phone">289-237-1389</div>
+    <div class="meta">Hamilton · London · Burlington · Oakville · Toronto · GTA<br><span class="g">Licensed &amp; Insured · Est. 1985</span></div>
+  </div>
+</div>
+<script>if(new URLSearchParams(location.search).get('sq'))document.body.classList.add('sq')</script>
+</body></html>
